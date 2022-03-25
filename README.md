@@ -5,6 +5,7 @@ Workflow:
 - run `create_imputed_datasets.R` x20 in parallel 
 - run `assess_imputed_convergence.R` and review plots and summaries to assess convergence
 - run `fit_modelsOR_MI.R` to fit the GEE models on each imputed dataset
+    - note that the gee-1 function used to fit the models is available in [this GitHub repository](https://github.com/katcorr/GEE1-Rfunction)
 - run `compute_pooledOR_MI.R` to compute pooled estimates (ORs, 95% CIs)
 
 Stef van Buuren's [Flexible Imputation of Missing Data](https://stefvanbuuren.name/fimd/) is an excellent resource for multiple imputation.
