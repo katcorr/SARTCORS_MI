@@ -9,4 +9,4 @@ Workflow:
 - run `compute_pooledOR_MI.R` to compute pooled estimates (ORs, 95% CIs)
 
 Stef van Buuren's [Flexible Imputation of Missing Data](https://stefvanbuuren.name/fimd/) is an excellent resource for multiple imputation.
-Documentation on R's [mice package](https://cran.r-project.org/web/packages/mice/mice.pdf) and the [corresponding vignettes](https://www.gerkovink.com/miceVignettes/Ad_hoc_and_mice/Ad_hoc_methods.html) are useful resources for implementing multiple imputation by chained equations in R.
+Documentation on R's [mice package](https://cran.r-project.org/web/packages/mice/mice.pdf) and the [corresponding vignettes](https://www.gerkovink.com/miceVignettes/) are useful resources for implementing multiple imputation by chained equations in R.
