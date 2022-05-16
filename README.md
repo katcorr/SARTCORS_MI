@@ -1,14 +1,16 @@
 # SARTCORS_MI
 This repository contains files relevant for implementing multiple imputation by chained equations (mice) in R on the [Society for Assisted Reproductive Technology Clinical Outcome Reporting System](https://www.sart.org/professionals-and-providers/research/) (SART CORS) database for a project investigating the impact of state insurance mandates on racial and ethnic disparities in assisted reproductive technology utilization and outcomes.
 
-Fields imputed:
-- patient race and ethnicity (Hispanic/Latinx, non-Hispanic white, non-Hispanic Black/African American, non-Hispanic Asian, other race, multiracial)
-- BMI category (<18.5, 18.5-24.9, 25-25.9, 30+)
-- FSH category (<=10, >10)
-- AMH category (<1, 1-4, >4)
-- number of embryos transferred
-- parous
-- any prior spontaneous abortion
+
+| Field imputed | Categories    | % Missing |
+| ------------- | ------------- | --------- |
+| Race and ethnicity  | Hispanic/Latino, non-Hispanic white, non-Hispanic Black/African American, non-Hispanic Asian, other race, multiracial  | 33% |
+| BMI | <18.5, 18.5-24.9, 25-25.9, 30+  | 14% |
+| FSH | <=10, > 10 | 31% |
+| AMH | <1, 1-<4, >=4 | 17% |
+| Number of embryos transferred | discrete | < 1% |
+| Parous | no, yes | < 1% |
+| Any prior spontaneous abortion | no, yes | < 1% |
 
 Workflow:
 - run `create_imputed_datasets.R` x20 in parallel 
