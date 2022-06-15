@@ -39,7 +39,7 @@ mi_pooled <- modsOR_mi_cart %>%
 # https://bookdown.org/mwheymans/bookmi/measures-of-missing-data-information.html#eq:lambda
 
 # full sample size
-n <- 806045
+n <- 1096539
 
 mi_pooled_more <- mi_pooled %>%
   mutate(# fraction of missing information (lambda)
@@ -124,7 +124,7 @@ mi_pooled <- modsOR_mi_def %>%
 # https://bookdown.org/mwheymans/bookmi/measures-of-missing-data-information.html#eq:lambda
 
 # full sample size
-n <- 806045
+n <- 1096539
   
 mi_pooled_more <- mi_pooled %>%
   mutate(# fraction of missing information (lambda)

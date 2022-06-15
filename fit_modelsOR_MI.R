@@ -54,12 +54,11 @@ for (m in Mset){
   
   # compute dataset for clb
   fresh_stim <- eval(as.name(paste0("imp",m+1))) %>%
-    filter(reporting_year %in% c(2016:2019) & frozen != 1) %>%
+    filter(frozen != 1) %>%
     select(external_patient_id, reporting_year, external_cycle_id, 
            starts_with("linked_"), frozen, lb, everything())
   
   thaws <- eval(as.name(paste0("imp",m+1))) %>%
-    filter(reporting_year %in% c(2016:2019)) %>%
     filter(linked_source_external_cycle_i_ds != "NULL") %>%
     separate(linked_source_external_cycle_i_ds, into=c(paste0("source",1:4))
              , sep=",", remove=FALSE, convert=TRUE) %>%
@@ -84,7 +83,7 @@ for (m in Mset){
     # and no following cycles that used those embryos; set clb to NA 
     # (exclude from clb analysis)
     mutate(clb = ifelse(is.infinite(clb0), yes=NA_real_, no=clb0)) %>%
-    # remove frozen cycles with stim cycles before 2016
+    # remove frozen cycles with stim cycles before 2014
     filter(source_cycle_id %in% unique(fresh_stim$external_cycle_id))
     
   # add potential covariates to dataset (all are related to stim cycle)

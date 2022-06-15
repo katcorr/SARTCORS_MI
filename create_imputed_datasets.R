@@ -28,8 +28,7 @@ sart_full <- readRDS("sart_full.RDS")
 
 # -----------------------     set up data         ------------------------------
 
-sart_forimp_1619 <- sart_full %>%
-  filter(reporting_year %in% c(2016:2019)) %>%
+sart_forimp <- sart_full %>%
   # need to make character string vars numeric or factor to include in imputation model
   # also need to make "missing" categories actually NA so can be imputed
   # include all factors will include in analysis model + auxiliary variables
@@ -101,40 +100,40 @@ sart_forimp_1619 <- sart_full %>%
 # getting loggedEvents for all the non-mandated states when look at mandated data
 # (even though they're not in the dataset, because it's a factor, those levels exist)
 # SO create as factor AFTER splitting up data
-m0_forimp <- sart_forimp_1619 %>%
+m0_forimp <- sart_forimp %>%
   filter(mandate_class1 == 0) %>%
   mutate(statef = as.factor(state)) %>%
   select(-state)
 
-m1_forimp <- sart_forimp_1619 %>%
+m1_forimp <- sart_forimp %>%
   filter(mandate_class1 == 1) %>%
   mutate(statef = as.factor(state)) %>%
   select(-state)
 
 # checks
-# sart_forimp_1619 %>% count(parousf, parous)
-# sart_forimp_1619 %>% count(any_prior_sabf, any_prior_sab)
-# sart_forimp_1619 %>% count(frozen, cycle_type)
-# sart_forimp_1619 %>% count(frozenf, frozen, cycle_type)
-# sart_forimp_1619 %>% count(patient_race_ethnic, race)
-# sart_forimp_1619 %>% count(bmicat4, bmicat4f)
-# sart_forimp_1619 %>% count(amhcat3, amhcat3f)
-# sart_forimp_1619 %>% count(fsh_gt10f, fsh_gt10)
-# sart_forimp_1619 %>% count(mandate_class1, race, mandate_race)
+# sart_forimp %>% count(parousf, parous)
+# sart_forimp %>% count(any_prior_sabf, any_prior_sab)
+# sart_forimp %>% count(frozen, cycle_type)
+# sart_forimp %>% count(frozenf, frozen, cycle_type)
+# sart_forimp %>% count(patient_race_ethnic, race)
+# sart_forimp %>% count(bmicat4, bmicat4f)
+# sart_forimp %>% count(amhcat3, amhcat3f)
+# sart_forimp %>% count(fsh_gt10f, fsh_gt10)
+# sart_forimp %>% count(mandate_class1, race, mandate_race)
 # m1_forimp %>% count(statef)
 # AH is rarely missing; the majority of "missing" are cancelled cycles where it's N/A
-# mosaic::tally(any_ah ~ cycle_typef, data=sart_forimp_1619)
+# mosaic::tally(any_ah ~ cycle_typef, data=sart_forimp)
 # ICSI is never actually missing; it's n/a for all cycle types excepts Fresh
-# mosaic::tally(any_icsi ~ cycle_typef, data=sart_forimp_1619)
-# mosaic::tally(fsh_gt10f ~ cycle_typef, data=sart_forimp_1619) 
-# mosaic::tally(fsh_gt10f ~ cycle_typef, data=sart_forimp_1619, format="percent")
-# mosaic::tally(amhcat3f ~ cycle_typef, data=sart_forimp_1619)
-# mosaic::tally(amhcat3f ~ cycle_typef, data=sart_forimp_1619)
-# mosaic::tally(amhcat3f ~ cycle_typef, data=sart_forimp_1619, format="percent")
-# mosaic::tally(pgd ~ cycle_typef, data=sart_forimp_1619)
-# mosaic::tally(pgd ~ cycle_typef, data=sart_forimp_1619, format="percent")
-#mosaic::favstats(num_transferred ~ cycle_typef, data=sart_forimp_1619)
-#sart_forimp_1619 %>% count(cycle_typef, pgd, num_transferred)
+# mosaic::tally(any_icsi ~ cycle_typef, data=sart_forimp)
+# mosaic::tally(fsh_gt10f ~ cycle_typef, data=sart_forimp) 
+# mosaic::tally(fsh_gt10f ~ cycle_typef, data=sart_forimp, format="percent")
+# mosaic::tally(amhcat3f ~ cycle_typef, data=sart_forimp)
+# mosaic::tally(amhcat3f ~ cycle_typef, data=sart_forimp)
+# mosaic::tally(amhcat3f ~ cycle_typef, data=sart_forimp, format="percent")
+# mosaic::tally(pgd ~ cycle_typef, data=sart_forimp)
+# mosaic::tally(pgd ~ cycle_typef, data=sart_forimp, format="percent")
+#mosaic::favstats(num_transferred ~ cycle_typef, data=sart_forimp)
+#sart_forimp %>% count(cycle_typef, pgd, num_transferred)
 
 # include state in imputation model:
 # https://stefvanbuuren.name/fimd/sec-missmult.html
