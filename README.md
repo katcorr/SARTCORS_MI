@@ -4,7 +4,7 @@ This repository contains files relevant for implementing multiple imputation by 
 
 | Field imputed | Categories    | % Missing |
 | ------------- | ------------- | --------- |
-| Race and ethnicity  | Hispanic/Latino, non-Hispanic white, non-Hispanic Black/African American, non-Hispanic Asian, other race, multiracial  | 33% |
+| Race and ethnicity  | Hispanic/Latino, non-Hispanic white, non-Hispanic Black/African American, non-Hispanic Asian, other race, multiracial  | 35% |
 | BMI | <18.5, 18.5-24.9, 25-25.9, 30+  | 14% |
 | FSH | <=10, > 10 | 31% |
 | AMH | <1, 1-<4, >=4 | 17% |
