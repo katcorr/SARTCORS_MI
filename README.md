@@ -7,7 +7,7 @@ This repository contains files relevant for implementing multiple imputation by 
 | Race and ethnicity  | Hispanic/Latino, non-Hispanic white, non-Hispanic Black/African American, non-Hispanic Asian, other race, multiracial  | 35% |
 | BMI | <18.5, 18.5-24.9, 25-25.9, 30+  | 14% |
 | FSH | <=10, > 10 | 31% |
-| AMH | <1, 1-<4, >=4 | 17% |
+| AMH | <1, 1-<4, >=4 | 58% |
 | Number of embryos transferred | discrete | < 1% |
 | Parous | no, yes | < 1% |
 | Any prior spontaneous abortion | no, yes | < 1% |
